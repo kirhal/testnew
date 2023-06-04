@@ -1,6 +1,11 @@
 // import { StyledLink, Header, AuthNav, AuthLink } from './Navigation.styled';
 import { data } from '../../instruments/data';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../../redux/usersOperations';
+
 import picture from '../../images/picture.png';
+import logo from '../../images/logo.svg';
 import {
   Section,
   Card,
@@ -11,22 +16,16 @@ import {
 } from './Tweets.styled';
 
 export default function Tweets() {
-  // const isLoggedIn = useSelector(getLogging);
+  const dispatch = useDispatch();
+  // useEffect(() =>)
 
   return (
     <Section>
       {data.map(({ name, avatar, tweets, id, followers }) => {
         return (
           <Card key={id}>
-            {/* <svg width="76" height="22">
-              <use href=""></use>
-            </svg> */}
-            <Img
-              src={picture}
-              // src="https://i.ibb.co/S5Hw0TN/picture2-1.jpg"
-              alt=""
-              width={308}
-            />
+            <Img src={logo} alt="logo" width="76" height="22" />
+            <Img src={picture} alt="background picture" width={308} />
             <Line></Line>
             <Avatar src={avatar} alt="avatar" />
             <p>{name}</p>
