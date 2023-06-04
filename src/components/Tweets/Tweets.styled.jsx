@@ -29,9 +29,8 @@ export const Card = styled.div`
     rgba(87, 54, 163, 1),
     rgba(75, 42, 153, 1)
   );
-  //   display: flex;
-  // justify-content: space-between;
-  //   align-items: center;
+  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
 `;
 
 export const Img = styled.img`

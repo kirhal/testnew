@@ -1,5 +1,6 @@
 // import { StyledLink, Header, AuthNav, AuthLink } from './Navigation.styled';
 import { data } from '../../instruments/data';
+import picture from '../../images/picture.png';
 import {
   Section,
   Card,
@@ -21,8 +22,8 @@ export default function Tweets() {
               <use href=""></use>
             </svg> */}
             <Img
-              //   src="images/pic2.jpg"
-              src="https://i.ibb.co/S5Hw0TN/picture2-1.jpg"
+              src={picture}
+              // src="https://i.ibb.co/S5Hw0TN/picture2-1.jpg"
               alt=""
               width={308}
             />
