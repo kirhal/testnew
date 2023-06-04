@@ -65,8 +65,24 @@ export const FollowButton = styled.button`
   line-height: 1.22;
 
   text-transform: uppercase;
+  border-radius: 10px;
+  border: none;
 
   color: rgba(55, 55, 55, 1);
+  background-color: rgba(235, 216, 255, 1);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(92, 211, 168, 1);
+  }
+
+  &.active {
+    background-color: rgba(92, 211, 168, 1);
+
+    &:hover,
+    &:focus {
+      background-color: rgba(235, 216, 255, 1);
+    }
 `;
 
 // export const UserEmail = styled.p`
