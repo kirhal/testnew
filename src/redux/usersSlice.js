@@ -16,6 +16,7 @@ export const usersSlice = createSlice({
     isLoading: false,
     error: null,
     followed: [],
+    page: 1,
   },
   extraReducers: {
     [fetchUsers.pending]: handlePending,
@@ -27,7 +28,8 @@ export const usersSlice = createSlice({
     [fetchUsers.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.data = action.payload;
+      // state.data = state.data.concat(action.payload);
+      state.data = [...state.data, ...action.payload];
     },
     [updateUser.fulfilled](state, action) {
       const followedIndex = state.followed.indexOf(action.payload.id);

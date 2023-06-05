@@ -62,6 +62,7 @@ export default function Tweets() {
           </Card>
         );
       })}
+      <button onClick={() => dispatch(fetchUsers())}>Load more</button>
     </Section>
   );
 }

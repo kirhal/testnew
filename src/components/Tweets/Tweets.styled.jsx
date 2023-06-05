@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   margin: 0 auto;
+  padding: 40px 0;
   display: flex;
   width: 1200px;
   flex-wrap: wrap;
@@ -82,7 +83,7 @@ export const Avatar = styled.img`
 `;
 export const Text = styled.p`
   margin-bottom: 16px;
-  
+
   &.margin_bottom {
     margin-bottom: 26px;
   }
