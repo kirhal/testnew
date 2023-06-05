@@ -1,2 +1,14 @@
-export const getContactsList = state => state.users.data;
+import { createSelector } from '@reduxjs/toolkit';
 
+export const getUsersList = state => state.users.data;
+export const getFollowedList = state => state.users.followed;
+
+export const selectUsersFollowed = createSelector(
+  [getUsersList, getFollowedList],
+  (users, followed) => {
+    return users.map(user => ({
+      ...user,
+      following: followed.includes(user.id),
+    }));
+  }
+);

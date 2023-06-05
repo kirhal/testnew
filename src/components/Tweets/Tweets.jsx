@@ -1,7 +1,7 @@
 // import { StyledLink, Header, AuthNav, AuthLink } from './Navigation.styled';
 import { useEffect } from 'react';
-import { fetchUsers } from '../../redux/usersOperations';
-import { getContactsList } from '../../redux/selectors';
+import { fetchUsers, updateUser } from '../../redux/usersOperations';
+import { selectUsersFollowed } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatNumber } from '../../instruments/formatNumbers';
 
@@ -21,9 +21,14 @@ import {
 
 export default function Tweets() {
   const dispatch = useDispatch();
-  const users = useSelector(getContactsList);
+  const users = useSelector(selectUsersFollowed);
 
-  const handleButton = () => {};
+  const handleButton = user => {
+    const { id, followers, following } = user;
+    const data = { id, followers };
+    data.followers += 1;
+    dispatch(updateUser(data));
+  };
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -31,7 +36,8 @@ export default function Tweets() {
 
   return (
     <Section>
-      {users.map(({ avatar, tweets, id, followers }) => {
+      {users.map(user => {
+        const { avatar, tweets, id, followers, following } = user;
         return (
           <Card key={id}>
             <Svg src={logo} alt="logo" width="76" height="22" />
@@ -46,13 +52,13 @@ export default function Tweets() {
               {formatNumber(followers)} followers
             </Text>
             <FollowButton
-              id={id}
               type="button"
+              className={!following ? '' : 'active'}
               onClick={() => {
-                handleButton();
+                handleButton(user);
               }}
             >
-              Follow
+              {!following ? 'Follow' : 'Following'}
             </FollowButton>
           </Card>
         );

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers } from './usersOperations';
+import { fetchUsers, updateUser } from './usersOperations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -19,29 +19,25 @@ export const usersSlice = createSlice({
   },
   extraReducers: {
     [fetchUsers.pending]: handlePending,
-    // [postContact.pending]: handlePending,
-    // [deleteContact.pending]: handlePending,
+    [updateUser.pending]: handlePending,
 
     [fetchUsers.rejected]: handleRejected,
-    // [postContact.rejected]: handleRejected,
-    // [deleteContact.rejected]: handleRejected,
+    [updateUser.rejected]: handleRejected,
 
     [fetchUsers.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.data = action.payload;
     },
-    // [postContact.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.data.push(action.payload);
-    // },
-    // [deleteContact.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   const contacts = state.data;
-    //   state.data = contacts.filter(({ id }) => id !== action.payload.id);
-    // },
+    [updateUser.fulfilled](state, action) {
+      const followedIndex = state.data.indexOf(action.payload.id);
+      followedIndex === -1
+        ? state.followed.push(action.payload.id)
+        : state.followed.splice(followedIndex, 1);
+      state.data = state.data.map(user =>
+        user.id === action.payload.id ? action.payload : user
+      );
+    },
   },
 });
 
