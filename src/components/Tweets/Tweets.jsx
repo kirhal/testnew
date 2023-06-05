@@ -24,7 +24,6 @@ export default function Tweets() {
   const dispatch = useDispatch();
   const users = useSelector(selectUserPagination);
   const loading = useSelector(getLoading);
-  console.log(loading);
 
   const handleButton = user => {
     const { id, followers, following } = user;
