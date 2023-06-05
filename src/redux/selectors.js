@@ -20,9 +20,9 @@ export const selectUsersFollowed = createSelector(
 export const selectUserPagination = createSelector(
   [selectUsersFollowed, getPage],
   (users, page) => {
-    const counterCards = CARDS_PER_PAGE * page;
-    if (users.length > counterCards) {
-      return users.slice(0, counterCards);
+    const counterUsers = CARDS_PER_PAGE * page;
+    if (users.length > counterUsers) {
+      return users.slice(0, counterUsers);
     } else {
       return users;
     }
