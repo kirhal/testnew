@@ -14,6 +14,9 @@ import {
   Avatar,
   Line,
   FollowButton,
+  Svg,
+  Round,
+  Text,
 } from './Tweets.styled';
 
 export default function Tweets() {
@@ -28,16 +31,20 @@ export default function Tweets() {
 
   return (
     <Section>
-      {users.map(({ name, avatar, tweets, id, followers }) => {
+      {users.map(({ avatar, tweets, id, followers }) => {
         return (
           <Card key={id}>
-            <Img src={logo} alt="logo" width="76" height="22" />
+            <Svg src={logo} alt="logo" width="76" height="22" />
             <Img src={picture} alt="background picture" width={308} />
-            <Line></Line>
-            <Avatar src={avatar} alt="avatar" />
-            <p>{name}</p>
-            <p>{tweets} tweets</p>
-            <p>{formatNumber(followers)} followers</p>
+            <Line>
+              <Round>
+                <Avatar src={avatar} alt="avatar" />
+              </Round>
+            </Line>
+            <Text>{tweets} tweets</Text>
+            <Text className="margin_bottom">
+              {formatNumber(followers)} followers
+            </Text>
             <FollowButton
               id={id}
               type="button"

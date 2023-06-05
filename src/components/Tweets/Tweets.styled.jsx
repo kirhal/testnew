@@ -19,6 +19,8 @@ export const Section = styled.section`
 `;
 
 export const Card = styled.div`
+  position: relative;
+
   width: 380px;
   text-align: center;
   padding: 28px 0 36px 0;
@@ -35,22 +37,55 @@ export const Card = styled.div`
 
 export const Img = styled.img`
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 18px auto;
 `;
-
-export const Avatar = styled.img`
-  width: 80px;
-  border-radius: 50%;
-  border: 8px solid rgba(235, 216, 255, 1);
+export const Svg = styled.img`
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 `;
-
 export const Line = styled.span`
+  margin-bottom: 62px;
+  position: relative;
   display: block;
   width: 100%;
   height: 8px;
   background-color: rgba(235, 216, 255, 1);
-  box-shadow: inset 0 3px 2px 0 rgba(251, 248, 255, 1),
-    inset 0 -2px 3pxem 0 rgba(174, 123, 227, 1);
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
+`;
+
+export const Round = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -45%);
+
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ebd8ff;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
+  border-radius: 50%;
+`;
+
+export const Avatar = styled.img`
+  display: block;
+  width: 62px;
+  border-radius: 50%;
+`;
+export const Text = styled.p`
+  margin-bottom: 16px;
+  
+  &.margin_bottom {
+    margin-bottom: 26px;
+  }
 `;
 
 export const FollowButton = styled.button`
@@ -84,32 +119,3 @@ export const FollowButton = styled.button`
       background-color: rgba(235, 216, 255, 1);
     }
 `;
-
-// export const UserEmail = styled.p`
-//   margin-right: 5px;
-//   display: block;
-//   font-size: 16px;
-// `;
-
-// export const Button = styled.button`
-//   padding: 5px 0;
-//   cursor: pointer;
-
-//   width: 70px;
-
-//   border: 1px solid rgb(11, 51, 78);
-//   border-radius: 5px;
-
-//   background-color: rgb(255, 255, 255);
-
-//   font-weight: 400;
-//   font-size: 14px;
-
-//   color: rgb(11, 51, 78);
-
-//   &:hover {
-//     color: white;
-//     border: 1px solid rgb(11, 51, 78);
-//     background-color: rgb(11, 51, 78);
-//   }
-// `;
