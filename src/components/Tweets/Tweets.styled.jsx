@@ -19,6 +19,10 @@ export const Section = styled.section`
   color: #ebd8ff;
 `;
 
+export const Loading = styled.h1`
+  color: black;
+`;
+
 export const Card = styled.div`
   position: relative;
 

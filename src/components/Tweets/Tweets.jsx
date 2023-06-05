@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { fetchUsers, updateUser } from '../../redux/usersOperations';
-import { selectUserPagination } from '../../redux/selectors';
+import { selectUserPagination, getLoading } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatNumber } from '../../instruments/formatNumbers';
 
@@ -17,11 +17,14 @@ import {
   Round,
   Text,
   LoadMore,
+  Loading,
 } from './Tweets.styled';
 
 export default function Tweets() {
   const dispatch = useDispatch();
   const users = useSelector(selectUserPagination);
+  const loading = useSelector(getLoading);
+  console.log(loading);
 
   const handleButton = user => {
     const { id, followers, following } = user;
@@ -40,6 +43,7 @@ export default function Tweets() {
         const { avatar, tweets, id, followers, following } = user;
         return (
           <Card key={id}>
+            {loading && <div>Loading</div>}
             <Svg src={logo} alt="logo" width="76" height="22" />
             <Img src={picture} alt="background picture" width={308} />
             <Line>
@@ -63,7 +67,11 @@ export default function Tweets() {
           </Card>
         );
       })}
-      <LoadMore onClick={() => dispatch(fetchUsers())}>Load more</LoadMore>
+      {loading ? (
+        <Loading>Loading</Loading>
+      ) : (
+        <LoadMore onClick={() => dispatch(fetchUsers())}>Load more</LoadMore>
+      )}
     </Section>
   );
 }

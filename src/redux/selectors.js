@@ -5,6 +5,7 @@ const CARDS_PER_PAGE = 3;
 export const getUsersList = state => state.users.data;
 export const getFollowedList = state => state.users.followed;
 export const getPage = state => state.users.page;
+export const getLoading = state => state.users.isLoading;
 
 export const selectUsersFollowed = createSelector(
   [getUsersList, getFollowedList],
