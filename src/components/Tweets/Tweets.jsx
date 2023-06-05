@@ -43,7 +43,6 @@ export default function Tweets() {
         const { avatar, tweets, id, followers, following } = user;
         return (
           <Card key={id}>
-            {loading && <div>Loading</div>}
             <Svg src={logo} alt="logo" width="76" height="22" />
             <Img src={picture} alt="background picture" width={308} />
             <Line>
