@@ -3,10 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://6463ca5b127ad0b8f8917480.mockapi.io';
 
-// const url = new URL('https://6463ca5b127ad0b8f8917480.mockapi.io/users/');
-// url.searchParams.append('page', page);
-// url.searchParams.append('limit', 3);
-
 export const fetchUsers = createAsyncThunk(
   'users/fetchAll',
   async (_, thunkAPI) => {
@@ -33,15 +29,3 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
-
-// export const deleteContact = createAsyncThunk(
-//   'users/deleteContact',
-//   async (contactId, thunkAPI) => {
-//     try {
-//       const response = await axios.delete(`/contacts/${contactId}`);
-//       return response.data;
-//     } catch (err) {
-//       return thunkAPI.rejectWithValue(err.message);
-//     }
-//   }
-// );

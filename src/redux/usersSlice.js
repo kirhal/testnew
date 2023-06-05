@@ -16,7 +16,7 @@ export const usersSlice = createSlice({
     isLoading: false,
     error: null,
     followed: [],
-    page: 1,
+    page: 0,
   },
   extraReducers: {
     [fetchUsers.pending]: handlePending,
@@ -46,5 +46,3 @@ export const usersSlice = createSlice({
 });
 
 export const usersReducer = usersSlice.reducer;
-
-// export default contactsSlice.reducer;

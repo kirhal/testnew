@@ -120,3 +120,27 @@ export const FollowButton = styled.button`
       background-color: rgba(235, 216, 255, 1);
     }
 `;
+
+export const LoadMore = styled.button`
+  width: 196px;
+  margin: 0;
+  padding: 14px 0;
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
+
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: none;
+
+  color: rgba(55, 55, 55, 1);
+  background-color: rgba(235, 216, 255, 1);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(92, 211, 168, 1);
+  }  
+`;

@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 import { fetchUsers, updateUser } from '../../redux/usersOperations';
-import {
-  selectUsersFollowed,
-  getPage,
-  selectUserPagination,
-} from '../../redux/selectors';
+import { selectUserPagination } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatNumber } from '../../instruments/formatNumbers';
 
@@ -20,6 +16,7 @@ import {
   Svg,
   Round,
   Text,
+  LoadMore,
 } from './Tweets.styled';
 
 export default function Tweets() {
@@ -66,7 +63,7 @@ export default function Tweets() {
           </Card>
         );
       })}
-      <button onClick={() => dispatch(fetchUsers())}>Load more</button>
+      <LoadMore onClick={() => dispatch(fetchUsers())}>Load more</LoadMore>
     </Section>
   );
 }
