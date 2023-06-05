@@ -22,12 +22,6 @@ const persistConfig = {
 
 const persistedFollowed = persistReducer(persistConfig, usersReducer);
 
-// export const store = configureStore({
-//   reducer: {
-//     users: usersReducer,
-//     // filters: filtersReducer,
-//   },
-// });
 export const store = configureStore({
   reducer: {
     users: persistedFollowed,

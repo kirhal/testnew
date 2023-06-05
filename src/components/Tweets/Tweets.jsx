@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { fetchUsers, updateUser } from '../../redux/usersOperations';
-import { selectUsersFollowed } from '../../redux/selectors';
+import {
+  selectUsersFollowed,
+  getPage,
+  selectUserPagination,
+} from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatNumber } from '../../instruments/formatNumbers';
 
@@ -20,7 +24,7 @@ import {
 
 export default function Tweets() {
   const dispatch = useDispatch();
-  const users = useSelector(selectUsersFollowed);
+  const users = useSelector(selectUserPagination);
 
   const handleButton = user => {
     const { id, followers, following } = user;

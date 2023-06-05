@@ -30,6 +30,7 @@ export const usersSlice = createSlice({
       state.error = null;
       // state.data = state.data.concat(action.payload);
       state.data = [...state.data, ...action.payload];
+      state.page += 1;
     },
     [updateUser.fulfilled](state, action) {
       const followedIndex = state.followed.indexOf(action.payload.id);

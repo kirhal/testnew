@@ -1,18 +1,17 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getPage } from './selectors';
 
-// axios.defaults.baseURL = 'https://6463ca5b127ad0b8f8917480.mockapi.io';
+axios.defaults.baseURL = 'https://6463ca5b127ad0b8f8917480.mockapi.io';
 
-const url = new URL('https://6463ca5b127ad0b8f8917480.mockapi.io/users');
-url.searchParams.append('page', 1);
-url.searchParams.append('limit', 3);
+// const url = new URL('https://6463ca5b127ad0b8f8917480.mockapi.io/users/');
+// url.searchParams.append('page', page);
+// url.searchParams.append('limit', 3);
 
 export const fetchUsers = createAsyncThunk(
   'users/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(url);
+      const response = await axios.get('/users');
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
