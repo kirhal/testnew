@@ -1,4 +1,3 @@
-// import { StyledLink, Header, AuthNav, AuthLink } from './Navigation.styled';
 import { useEffect } from 'react';
 import { fetchUsers, updateUser } from '../../redux/usersOperations';
 import { selectUsersFollowed } from '../../redux/selectors';
@@ -26,7 +25,7 @@ export default function Tweets() {
   const handleButton = user => {
     const { id, followers, following } = user;
     const data = { id, followers };
-    data.followers += 1;
+    !following ? (data.followers += 1) : (data.followers -= 1);
     dispatch(updateUser(data));
   };
 

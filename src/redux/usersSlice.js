@@ -30,7 +30,8 @@ export const usersSlice = createSlice({
       state.data = action.payload;
     },
     [updateUser.fulfilled](state, action) {
-      const followedIndex = state.data.indexOf(action.payload.id);
+      const followedIndex = state.followed.indexOf(action.payload.id);
+      console.log(followedIndex);
       followedIndex === -1
         ? state.followed.push(action.payload.id)
         : state.followed.splice(followedIndex, 1);

@@ -1,8 +1,11 @@
 FOLLOWER FINDER APP
 
-This project was written as a test task from the GO IT school, the main task was to make a request from the backend to receive a list of users, and when clicking the follow button, make a request to add a following.
+This project was written as a test task from the GO IT school, the main task was
+to make a request from the backend to receive a list of users, and when clicking
+the follow button, make a request to add a following.
 
-It was also necessary to add stylization at your own discretion, I added simple styles
+It was also necessary to add stylization at your own discretion, I added simple
+styles
 
 FUNCTIONALITY
 
