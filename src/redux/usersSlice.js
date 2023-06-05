@@ -15,6 +15,7 @@ export const usersSlice = createSlice({
     data: [],
     isLoading: false,
     error: null,
+    followed: [],
   },
   extraReducers: {
     [fetchUsers.pending]: handlePending,
